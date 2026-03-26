@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卡比书库 | Kirby Library</title>
+    <!-- 引入图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入自定义样式 -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 谷歌字体 (可选，提升质感) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 顶部导航栏 -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-book-open"></i> 卡比书库
+        </div>
+        <div class="nav-search">
+            <input type="text" id="searchInput" placeholder="搜索书名、作者...">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="nav-actions">
+            <button id="themeToggle" class="icon-btn" title="切换夜间模式">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 主体内容：书架 -->
+    <main class="container">
+        <header class="section-header">
+            <h1>精选藏书</h1>
+            <p>沉浸阅读，探索无限可能</p>
+        </header>
+        
+        <div class="book-grid" id="bookGrid">
+            <!-- 书籍卡片由 JS 动态生成 -->
+        </div>
+    </main>
+
+    <!-- 沉浸式阅读器模态框 -->
+    <div id="readerModal" class="reader-modal">
+        <!-- 阅读器顶部工具栏 -->
+        <div class="reader-toolbar">
+            <button class="icon-btn" onclick="app.closeReader()"><i class="fas fa-arrow-left"></i> 返回</button>
+            <div class="reader-controls">
+                <span class="font-size-control">
+                    <button onclick="app.adjustFontSize(-1)"><i class="fas fa-minus"></i></button>
+                    <span id="fontSizeDisplay">16px</span>
+                    <button onclick="app.adjustFontSize(1)"><i class="fas fa-plus"></i></button>
+                </span>
+                <button class="icon-btn" onclick="app.toggleNightModeInReader()" title="夜间模式"><i class="fas fa-adjust"></i></button>
+            </div>
+        </div>
+
+        <!-- 阅读内容区域 -->
+        <div class="reader-content-wrapper">
+            <article id="readerArticle">
+                <h1 id="readerTitle">书名</h1>
+                <div class="reader-meta" id="readerMeta">作者：未知</div>
+                <div id="readerText" class="reader-text"></div>
+            </article>
+        </div>
+        
+        <!-- 底部进度条 -->
+        <div class="reader-progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </div>
+
+    <!-- 脚本加载 -->
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    
+</body>
+</html>
