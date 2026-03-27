@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线阅读 - 卡比书库</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="index.html">📚 卡比书库</a></div>
+        <div class="search-container" style="width: 30%;">
+            <!-- 阅读器页面保留搜索功能 -->
+            <input type="text" id="search-input" class="search-input" placeholder="搜索书籍...">
+        </div>
+    </header>
+
+    <div class="reader-layout">
+        <!-- 左侧目录 -->
+        <aside class="toc-sidebar">
+            <div class="toc-title">目录</div>
+            <ul id="toc-list" class="chapter-list">
+                <!-- 目录由 JS 生成 -->
+            </ul>
+        </aside>
+
+        <!-- 右侧阅读区 -->
+        <main class="reading-area">
+            <header class="chapter-header">
+                <h1 id="chapter-title">章节加载中...</h1>
+                <div id="book-meta" class="chapter-meta">...</div>
+            </header>
+
+            <article id="chapter-content" class="chapter-content">
+                <!-- 文本内容加载处 -->
+            </article>
+
+            <nav class="reader-nav">
+                <button id="btn-prev" class="btn btn-outline">上一章</button>
+                <button id="btn-next" class="btn btn-primary">下一章</button>
+            </nav>
+        </main>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
